@@ -27,6 +27,8 @@
 		452CFA8520CAFA2500BC9744 /* MovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CFA8420CAFA2500BC9744 /* MovieGenre.swift */; };
 		452CFA8820CAFD9B00BC9744 /* GenreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CFA8720CAFD9B00BC9744 /* GenreLabel.swift */; };
 		452CFA8B20CB35A000BC9744 /* AppEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CFA8A20CB35A000BC9744 /* AppEndpoints.swift */; };
+		454953D720CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png in Resources */ = {isa = PBXBuildFile; fileRef = 454953D520CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png */; };
+		454953D820CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png in Resources */ = {isa = PBXBuildFile; fileRef = 454953D620CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png */; };
 		458B1ED920CC95BB0029F4CD /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B1ED820CC95BB0029F4CD /* MovieTests.swift */; };
 		458B1EDB20CC9B4E0029F4CD /* MovieGenreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B1EDA20CC9B4E0029F4CD /* MovieGenreTests.swift */; };
 		458B1EDD20CC9D730029F4CD /* MovieDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B1EDC20CC9D730029F4CD /* MovieDetailViewModelTests.swift */; };
@@ -86,6 +88,8 @@
 		452CFA8420CAFA2500BC9744 /* MovieGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenre.swift; sourceTree = "<group>"; };
 		452CFA8720CAFD9B00BC9744 /* GenreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreLabel.swift; sourceTree = "<group>"; };
 		452CFA8A20CB35A000BC9744 /* AppEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEndpoints.swift; sourceTree = "<group>"; };
+		454953D520CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png"; sourceTree = "<group>"; };
+		454953D620CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png"; sourceTree = "<group>"; };
 		458B1ED820CC95BB0029F4CD /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
 		458B1EDA20CC9B4E0029F4CD /* MovieGenreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenreTests.swift; sourceTree = "<group>"; };
 		458B1EDC20CC9D730029F4CD /* MovieDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModelTests.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		454953D420CCBAF700128E8E /* screenshoots */ = {
 			isa = PBXGroup;
 			children = (
+				454953D520CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png */,
+				454953D620CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png */,
 			);
 			path = screenshoots;
 			sourceTree = "<group>";
@@ -438,12 +444,14 @@
 				452CFA7620C8F77300BC9744 /* Lato-BlackItalic.ttf in Resources */,
 				452CFA7420C8F77300BC9744 /* Lato-Regular.ttf in Resources */,
 				452CFA7720C8F77300BC9744 /* OFL.txt in Resources */,
+				454953D720CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.20.png in Resources */,
 				452CFA7020C8F77300BC9744 /* Lato-LightItalic.ttf in Resources */,
 				452CFA7520C8F77300BC9744 /* Lato-Hairline.ttf in Resources */,
 				45E21FA220C8AA20008699BC /* Assets.xcassets in Resources */,
 				452CFA6F20C8F77300BC9744 /* Lato-Italic.ttf in Resources */,
 				45E21FA020C8AA1E008699BC /* Main.storyboard in Resources */,
 				452CFA7820C8F77300BC9744 /* Lato-BoldItalic.ttf in Resources */,
+				454953D820CCDC2E00128E8E /* Simulator Screen Shot - iPhone 8 - 2018-06-09 at 21.46.27.png in Resources */,
 				452CFA7920C8F77300BC9744 /* Lato-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
