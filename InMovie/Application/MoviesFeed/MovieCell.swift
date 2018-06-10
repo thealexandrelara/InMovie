@@ -10,6 +10,25 @@ import UIKit
 import Kingfisher
 
 class MovieCell: UICollectionViewCell {
+    
+    let activityView: UIActivityIndicatorView = {
+        let uiv = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        uiv.hidesWhenStopped = true
+        
+        return uiv
+    }()
+    
+    let fadeView: UIView = {
+        let uiv = UIView()
+        uiv.backgroundColor = .black
+        uiv.alpha = 0
+        uiv.layer.cornerRadius = 5.0
+        uiv.layer.masksToBounds = true
+        uiv.clipsToBounds = true
+        
+        return uiv
+    }()
+    
     let imageView: UIImageView = {
         let uiv = UIImageView()
         uiv.image = #imageLiteral(resourceName: "avengers")
@@ -57,6 +76,9 @@ class MovieCell: UICollectionViewCell {
         addSubview(movieReleaseDateLabel)
         addSubview(movieTitleLabel)
         
+        imageView.addSubview(fadeView)
+        imageView.addSubview(activityView)
+        
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(360)
@@ -70,5 +92,23 @@ class MovieCell: UICollectionViewCell {
             make.top.equalTo(movieReleaseDateLabel.snp.bottom).offset(8)
             make.right.left.equalToSuperview()
         }
+        
+        fadeView.snp.makeConstraints { (make) in
+            make.edges.equalTo(imageView)
+        }
+        
+        activityView.snp.makeConstraints { (make) in
+            make.center.equalTo(imageView)
+        }
+    }
+    
+    func startActivityIndicator(){
+        fadeView.alpha = 0.4
+        activityView.startAnimating()
+    }
+    
+    func stopActivityIndicator(){
+        fadeView.alpha = 0
+        activityView.stopAnimating()
     }
 }

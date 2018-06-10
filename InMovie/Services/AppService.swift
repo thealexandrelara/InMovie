@@ -21,19 +21,32 @@ protocol AppServiceType {
 }
 
 class AppService: AppServiceType {
-    
     let provider = MoyaProvider<AppEndpoints>()
     let disposeBag = DisposeBag()
 
     func getUpcomingMovies(parameters: [String: Any]) -> Observable<MovieUpcomingResult> {
-        return provider.rx.request(.getUpcomingMovies(params: parameters))
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        return provider.rx
+            .request(.getUpcomingMovies(params: parameters))
+            .do(onSuccess: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }, onError: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            })
             .mapObject(MovieUpcomingResult.self)
             .asObservable()
     }
     
     func getMovie(id: Int, parameters: [String: Any]) -> Observable<Movie> {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        return provider.rx.request(.getMovie(id: id, params: parameters))
+        return provider.rx
+            .request(.getMovie(id: id, params: parameters))
+            .do(onSuccess: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }, onError: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            })
             .mapObject(Movie.self)
             .asObservable()
     }

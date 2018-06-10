@@ -20,6 +20,8 @@ class MoviesFeedViewController: UIViewController, BindableType {
     
     let movieCellId = "movieCellId"
     
+    var currentIndexPath = IndexPath(item: 0, section: 0)
+    
     let mainView: MoviesFeedView = {
         let uiv = MoviesFeedView()
         uiv.backgroundColor = .clear
@@ -66,6 +68,7 @@ class MoviesFeedViewController: UIViewController, BindableType {
         searchButton.imageView?.contentMode = .scaleAspectFit
         searchButton.setImage(#imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate), for: .normal)
         searchButton.tintColor = .white
+        searchButton.isHidden = true
         
         let searchButtonItem = UIBarButtonItem(customView: searchButton)
         
@@ -80,12 +83,25 @@ class MoviesFeedViewController: UIViewController, BindableType {
         
         
         mainView.collectionView.rx.itemSelected
+            .do(onNext: {[unowned self] indexPath in
+                self.currentIndexPath = indexPath
+                
+                let cell = self.mainView.collectionView.cellForItem(at: self.currentIndexPath) as! MovieCell
+                
+                cell.startActivityIndicator()
+            })
             .map({ [weak self] (indexPath) -> Int in
+                
                 guard let movie = self?.viewModel.getMovie(in: indexPath.item) else { return -1 }
-                return movie.id ?? -1
+                return movie.id
             })
             .flatMap({[unowned self] (id) -> Observable<Movie> in
                 self.viewModel.getMovie(id: id)
+            })
+            .do(onNext: {[unowned self] _ in
+                let cell = self.mainView.collectionView.cellForItem(at: self.currentIndexPath) as! MovieCell
+                
+                cell.stopActivityIndicator()
             })
             .subscribe(viewModel.detailAction.inputs)
             .disposed(by: disposeBag)
@@ -111,6 +127,7 @@ class MoviesFeedViewController: UIViewController, BindableType {
         
         viewModel.movies
             .bind(to: mainView.collectionView.rx.items(cellIdentifier: movieCellId, cellType: MovieCell.self)) { (row, element, cell) in
+                
                 cell.movieTitleLabel.text = element.title
                 
                 if let releaseDateString = element.releaseDate {
